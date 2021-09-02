@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom'
 const Pokemons = () => {
 
     const [pokemons, setPokemons] = useState([])
-    const API = `https://pokeapi.co/api/v2/pokemon?limit=25`
+    const API = `https://pokeapi.co/api/v2/pokemon?limit=100`
 
     useEffect(() => {
         fetchPokemons()
@@ -21,16 +21,12 @@ const Pokemons = () => {
         await axios.get(API)
                    .then(response => setPokemons(response.data.results))
     }
-    console.log(pokemons)
-
-    const pokeURL = 'https://pokeapi.co/api/v2/pokemon/22/'
 
     const getPokeUrl = (url) => {
          url = url.split('/')
          url = url[6]
          return url
     }
-    console.log(getPokeUrl(pokeURL))
 
 
     return(
